@@ -16,16 +16,11 @@ export default function GameDropdown({ games, selectedGameId, onChange, disabled
       <label htmlFor="game-select" className="sr-only">Select upcoming 2025 game</label>
       <select
         id="game-select"
+        className="select"
         aria-label="Select upcoming 2025 game"
         value={selectedGameId ?? ''}
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
-        style={{
-          padding: '10px',
-          borderRadius: '8px',
-          border: '1px solid #e5e7eb',
-          minWidth: '260px'
-        }}
       >
         <option value="" disabled>
           Select a 2025 game

@@ -75,7 +75,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header" style={{ padding: 24 }}>
+      <header className="App-header">
         <button
           className="theme-toggle"
           onClick={toggleTheme}
@@ -84,24 +84,9 @@ function App() {
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
 
-        <div
-          role="region"
-          aria-label="Hero"
-          style={{
-            maxWidth: 720,
-            width: '100%',
-            margin: '0 auto',
-            padding: '32px 20px',
-            borderRadius: 16,
-            background:
-              'linear-gradient(135deg, rgba(37,99,235,0.10) 0%, rgba(249,250,251,1) 100%)',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
-          }}
-        >
-          <h1 style={{ margin: 0, color: '#111827', fontSize: '1.75rem' }}>{title}</h1>
-          <p style={{ marginTop: 8, color: 'rgba(17,24,39,0.8)', fontSize: '1rem' }}>
-            {subtitle}
-          </p>
+        <div role="region" aria-label="Hero" className="ocean-container">
+          <h1 className="title">{title}</h1>
+          <p className="subtitle">{subtitle}</p>
 
           <div style={{ marginTop: 20 }}>
             <GameDropdown
@@ -112,16 +97,7 @@ function App() {
             />
           </div>
 
-          <div
-            style={{
-              marginTop: 20,
-              padding: 16,
-              border: '1px solid var(--border-color)',
-              borderRadius: 12,
-              backgroundColor: 'var(--bg-primary)',
-              textAlign: 'left',
-            }}
-          >
+          <div className="card">
             <div aria-live="polite" style={{ minHeight: 24 }}>
               <PredictionDisplay loading={loading} error={error} prediction={prediction} />
             </div>
@@ -130,7 +106,8 @@ function App() {
           <div
             role="status"
             aria-live="polite"
-            style={{ marginTop: 8, fontSize: 12, color: 'rgba(17,24,39,0.6)' }}
+            className="text-muted"
+            style={{ marginTop: 8, fontSize: 12 }}
           >
             {loading ? 'Fetching prediction…' : error ? 'There was an error.' : 'Ready.'}
           </div>
